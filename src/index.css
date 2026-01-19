@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-white text-gray-800;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-bold;
+  }
+
+  button {
+    @apply transition-all duration-300 ease-in-out;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-sage-green text-white rounded-full hover:bg-opacity-90 transition-all shadow-soft hover:shadow-medium font-semibold;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 border-2 border-sage-green text-sage-green rounded-full hover:bg-sage-green hover:text-white transition-all font-semibold;
+  }
+
+  .card-product {
+    @apply bg-cream rounded-2xl shadow-soft hover:shadow-lg transition-all duration-300 overflow-hidden;
+  }
+
+  .card-testimonial {
+    @apply bg-light-green p-6 rounded-2xl shadow-soft hover:shadow-medium transition-all;
+  }
+
+  .section-heading {
+    @apply text-4xl md:text-5xl font-serif font-bold text-center mb-12 text-gray-900;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  animation: shimmer 2s infinite;
+}
