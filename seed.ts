@@ -2,11 +2,12 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import Product from './backend/models/Product.js';
 
-dotenv.config();
+dotenv.config({ override: true });
 
 const seedProducts = async () => {
   try {
-    const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/dairy-shop';
+    const mongoUri = process.env.MONGODB_URI || 'mongodb+srv://vedantzope123:Sunidhi%3C3@cluster0.pjuvsdk.mongodb.net/';
+    console.log('Using MONGODB_URI:', mongoUri);
     await mongoose.connect(mongoUri);
     console.log('Connected to MongoDB');
 
