@@ -8,7 +8,7 @@ interface TestimonialCardProps {
 
 export const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => {
   return (
-    <div className="card-testimonial animate-fade-in">
+    <div className="card-glow animate-fade-in">
       <div className="flex gap-1 mb-3">
         {[...Array(testimonial.rating)].map((_, i) => (
           <Star key={i} size={16} className="fill-natural-gold text-natural-gold" />

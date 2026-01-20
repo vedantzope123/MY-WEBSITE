@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Sparkles, Truck, ShieldCheck, HeartHandshake } from 'lucide-react';
 import type { Product } from '../data/products';
 import { categories } from '../data/products';
 import { ProductCard } from '../components/ProductCard';
 import { formatCurrency } from '../utils/currency';
+import { useUnsplash } from '../hooks/useUnsplash';
 
 interface ShopPageProps {
   products: Product[];
@@ -19,6 +20,7 @@ interface ShopPageProps {
   onAddToCart: (product: Product) => void;
   onAddToWishlist: (product: Product) => void;
   wishlistIds: number[];
+  useUnsplashImages?: boolean;
 }
 
 export const ShopPage: React.FC<ShopPageProps> = ({
@@ -27,7 +29,18 @@ export const ShopPage: React.FC<ShopPageProps> = ({
   onAddToCart,
   onAddToWishlist,
   wishlistIds,
+  useUnsplashImages = true,
 }) => {
+  // Build a generic query for shop page (mix of categories)
+  const query = useMemo(() => 'dairy products milk cheese butter yogurt', []);
+  const { images: unsplashImages, loading: unsplashLoading, pick } = useUnsplash(query, 18);
+  const runtimeProducts = useMemo(() => {
+    if (!useUnsplashImages || !unsplashImages.length) return products;
+    return products.map((p, idx) => {
+      const chosen = pick(idx);
+      return chosen ? { ...p, image: chosen.url } : p;
+    });
+  }, [useUnsplashImages, unsplashImages, products, pick]);
   return (
     <section id="shop" className="section-container">
       <div className="text-center mb-12">
@@ -65,8 +78,13 @@ export const ShopPage: React.FC<ShopPageProps> = ({
       </div>
 
       {/* Products Grid */}
+      {useUnsplashImages && (
+        <div className="mb-4 text-center text-sm text-gray-600">
+          {unsplashLoading ? 'Loading fresh images from Unsplash…' : 'Showing live images from Unsplash'}
+        </div>
+      )}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-        {products.map((product) => (
+        {runtimeProducts.map((product) => (
           <ProductCard
             key={product.id}
             product={product}

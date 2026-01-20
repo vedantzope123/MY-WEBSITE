@@ -4,7 +4,44 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>newfile</title>
+    <title>Grainiacs & Co. - Dairy Shop</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'cream': '#FFF8F0',
+              'light-green': '#E8F3E8',
+              'sage-green': '#A8B8A8',
+              'natural-gold': '#D4AF8C',
+            },
+            fontFamily: {
+              'serif': ['Georgia', 'serif'],
+            },
+            boxShadow: {
+              'soft': '0 2px 8px rgba(0, 0, 0, 0.1)',
+              'medium': '0 4px 12px rgba(0, 0, 0, 0.15)',
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.8s ease-in',
+              'slide-up': 'slideUp 0.6s ease-out',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+            },
+          },
+        },
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

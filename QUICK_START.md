@@ -61,7 +61,7 @@ Your MongoDB Atlas connection needs IP whitelisting:
 
 **OR** Use local MongoDB:
 - Install MongoDB locally
-- Change `.env` file: `MONGODB_URI=mongodb://localhost:27017/dairy-shop`
+- Change `.env` file: `mongodb+srv://vedantzope123:Sunidhi<3@cluster0.pjuvsdk.mongodb.net/`
 - Restart backend server
 
 ## 📱 Features Summary

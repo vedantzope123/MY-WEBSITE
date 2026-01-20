@@ -17,7 +17,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   isInWishlist,
 }) => {
   return (
-    <div className="card-product animate-slide-up">
+    <div className="card-premium animate-slide-up">
       {/* Image Container */}
       <div className="relative overflow-hidden bg-cream h-48 md:h-56">
         <img
@@ -54,17 +54,17 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           <button
             onClick={() => onAddToCart(product)}
             disabled={!product.inStock}
-            className="flex-1 btn-primary disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            className="flex-1 btn-premium disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
             <ShoppingCart size={18} />
             Add to Cart
           </button>
           <button
             onClick={() => onAddToWishlist(product)}
-            className={`p-3 rounded-full border-2 transition-all ${
+            className={`p-3 rounded-full border-2 transition-all duration-300 hover:scale-110 ${
               isInWishlist
-                ? 'bg-natural-gold border-natural-gold text-white'
-                : 'border-sage-green text-sage-green hover:bg-light-green'
+                ? 'bg-natural-gold border-natural-gold text-white shadow-lg'
+                : 'border-sage-green text-sage-green hover:bg-light-green hover:shadow-md'
             }`}
           >
             <Heart size={20} fill={isInWishlist ? 'currentColor' : 'none'} />

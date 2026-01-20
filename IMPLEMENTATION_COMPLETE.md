@@ -179,7 +179,7 @@ I've successfully added the following features to your Dairy Shop website:
 1. **MongoDB Connection:** 
    - You're currently using MongoDB Atlas (cloud database)
    - Make sure to whitelist your IP address in MongoDB Atlas Network Access settings
-   - Alternatively, install and use local MongoDB: `mongodb://localhost:27017/dairy-shop`
+   - Alternatively, install and use local MongoDB: `mongodb+srv://vedantzope123:Sunidhi<3@cluster0.pjuvsdk.mongodb.net/`
    
 2. **Environment Variables:** The `.env` file contains the JWT secret - change it in production!
 

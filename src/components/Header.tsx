@@ -61,12 +61,12 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="flex items-center gap-4">
           <button
             onClick={onWishlistClick}
-            className="relative p-2 hover:bg-cream rounded-full transition-colors"
+            className="relative p-2 hover:bg-light-green rounded-full transition-all duration-300 hover:scale-110 hover:shadow-md"
             aria-label="Wishlist"
           >
-            <Heart size={24} className="text-sage-green" />
+            <Heart size={24} className="text-sage-green transition-colors" />
             {wishlistCount > 0 && (
-              <span className="absolute -top-1 -right-1 bg-natural-gold text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+              <span className="absolute -top-1 -right-1 bg-natural-gold text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold shadow-md animate-bounce-in">
                 {wishlistCount}
               </span>
             )}
@@ -74,12 +74,12 @@ export const Header: React.FC<HeaderProps> = ({
 
           <button
             onClick={onCartClick}
-            className="relative p-2 hover:bg-cream rounded-full transition-colors"
+            className="relative p-2 hover:bg-light-green rounded-full transition-all duration-300 hover:scale-110 hover:shadow-md"
             aria-label="Shopping Cart"
           >
-            <ShoppingCart size={24} className="text-sage-green" />
+            <ShoppingCart size={24} className="text-sage-green transition-colors" />
             {cartCount > 0 && (
-              <span className="absolute -top-1 -right-1 bg-natural-gold text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+              <span className="absolute -top-1 -right-1 bg-natural-gold text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold shadow-md animate-bounce-in">
                 {cartCount}
               </span>
             )}
@@ -99,7 +99,7 @@ export const Header: React.FC<HeaderProps> = ({
               </button>
               
               {showUserMenu && (
-                <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2">
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 card-glow">
                   <div className="px-4 py-2 border-b border-gray-200">
                     <p className="font-semibold text-sm">{user.name}</p>
                     <p className="text-xs text-gray-500">{user.email}</p>
@@ -109,7 +109,7 @@ export const Header: React.FC<HeaderProps> = ({
                       onSignOut();
                       setShowUserMenu(false);
                     }}
-                    className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 flex items-center gap-2 text-red-600"
+                    className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 flex items-center gap-2 text-red-600 transition-colors"
                   >
                     <LogOut size={16} />
                     Sign Out
@@ -120,7 +120,7 @@ export const Header: React.FC<HeaderProps> = ({
           ) : (
             <button
               onClick={onSignIn}
-              className="hidden md:block bg-sage-green text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all"
+              className="hidden md:block btn-premium"
             >
               Sign In
             </button>

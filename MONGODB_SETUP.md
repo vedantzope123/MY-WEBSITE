@@ -51,7 +51,7 @@ Your MongoDB Atlas connection is blocked because your IP address is not whitelis
    - Open the `.env` file
    - Change this line:
      ```
-     MONGODB_URI=mongodb://localhost:27017/dairy-shop
+     MONGODB_URI=mongodb+srv://vedantzope123:Sunidhi<3@cluster0.pjuvsdk.mongodb.net/
      ```
    - Save the file
 
