@@ -1,11 +1,13 @@
 export interface Product {
   id: number;
+  _id?: string;
   name: string;
   category: 'milk' | 'cheese' | 'butter' | 'yogurt' | 'ghee';
   price: number;
   image: string;
   description: string;
   inStock: boolean;
+  unit?: string;
 }
 
 export interface Testimonial {

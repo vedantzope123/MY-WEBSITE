@@ -9,6 +9,7 @@ export const AboutPage: React.FC = () => {
         <div className="section-container text-center">
           <h1 className="section-heading">About Grainiacs & Co.</h1>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+           Founder And CEO Mr.Vedant Zope<br></br>
             Committed to bringing you the purest dairy products while caring for our cows and the planet.
           </p>
         </div>

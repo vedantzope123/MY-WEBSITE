@@ -52,4 +52,21 @@ export const subscriptionsAPI = {
   cancel: (id: string) => api.post(`/subscriptions/${id}/cancel`),
 };
 
+// Authentication API
+export const authAPI = {
+  signIn: (email: string, password: string) => 
+    api.post('/auth/signin', { email, password }),
+  signUp: (data: {
+    name: string;
+    email: string;
+    password: string;
+    phone?: string;
+    address?: string;
+    city?: string;
+    zipCode?: string;
+  }) => api.post('/auth/signup', data),
+  getMe: (token: string) => 
+    api.get('/auth/me', { headers: { Authorization: `Bearer ${token}` } }),
+};
+
 export default api;

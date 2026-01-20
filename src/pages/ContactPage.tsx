@@ -14,15 +14,15 @@ export const ContactPage: React.FC = () => {
           <div className="space-y-4 text-gray-700">
             <div className="flex items-center gap-3">
               <Mail className="text-sage-green" />
-              <span>hello@grainiacs.co</span>
+              <span>vedantzope814@gmail.com</span>
             </div>
             <div className="flex items-center gap-3">
               <Phone className="text-sage-green" />
-              <span>+1 (555) 123-4567</span>
+              <span>+91-7517603690</span>
             </div>
             <div className="flex items-center gap-3">
               <MapPin className="text-sage-green" />
-              <span>Green Valley Farms, Wisconsin</span>
+              <span>KJ's Hostel Pune</span>
             </div>
           </div>
 

@@ -6,3 +6,4 @@ const formatter = new Intl.NumberFormat('en-IN', {
 
 // Formats numbers as Indian Rupee currency (e.g., ₹1,234.50)
 export const formatCurrency = (amount: number): string => formatter.format(amount);
+export const formatPrice = formatCurrency; // Alias for backward compatibility

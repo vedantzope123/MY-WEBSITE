@@ -1,20 +1,27 @@
 import React, { useState } from 'react';
-import { Menu, X, ShoppingCart, Heart } from 'lucide-react';
+import { Menu, X, ShoppingCart, Heart, User, LogOut } from 'lucide-react';
 
 interface HeaderProps {
   onCartClick: () => void;
   onWishlistClick: () => void;
   cartCount: number;
   wishlistCount: number;
+  user: { name: string; email: string } | null;
+  onSignIn: () => void;
+  onSignOut: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ 
   onCartClick, 
   onWishlistClick, 
   cartCount, 
-  wishlistCount 
+  wishlistCount,
+  user,
+  onSignIn,
+  onSignOut
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showUserMenu, setShowUserMenu] = useState(false);
 
   const navLinks = [
     { name: 'Home', href: '#home' },
@@ -78,6 +85,47 @@ export const Header: React.FC<HeaderProps> = ({
             )}
           </button>
 
+          {/* User Menu */}
+          {user ? (
+            <div className="relative">
+              <button
+                onClick={() => setShowUserMenu(!showUserMenu)}
+                className="flex items-center gap-2 p-2 hover:bg-cream rounded-lg transition-colors"
+              >
+                <User size={24} className="text-sage-green" />
+                <span className="hidden md:block text-sm font-medium text-gray-700">
+                  {user.name}
+                </span>
+              </button>
+              
+              {showUserMenu && (
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2">
+                  <div className="px-4 py-2 border-b border-gray-200">
+                    <p className="font-semibold text-sm">{user.name}</p>
+                    <p className="text-xs text-gray-500">{user.email}</p>
+                  </div>
+                  <button
+                    onClick={() => {
+                      onSignOut();
+                      setShowUserMenu(false);
+                    }}
+                    className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 flex items-center gap-2 text-red-600"
+                  >
+                    <LogOut size={16} />
+                    Sign Out
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <button
+              onClick={onSignIn}
+              className="hidden md:block bg-sage-green text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all"
+            >
+              Sign In
+            </button>
+          )}
+
           {/* Mobile Menu Button */}
           <button
             className="md:hidden p-2"
@@ -108,6 +156,19 @@ export const Header: React.FC<HeaderProps> = ({
                 </a>
               </li>
             ))}
+            {!user && (
+              <li>
+                <button
+                  onClick={() => {
+                    onSignIn();
+                    setIsMenuOpen(false);
+                  }}
+                  className="w-full bg-sage-green text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all"
+                >
+                  Sign In
+                </button>
+              </li>
+            )}
           </ul>
         </div>
       )}

@@ -13,7 +13,8 @@ router.get('/:userId', async (req, res) => {
       wishlist = new Wishlist({ userId: req.params.userId, productIds: [] });
       await wishlist.save();
     }
-    res.json(wishlist);
+    // Return products array for easier frontend handling
+    res.json({ products: wishlist.productIds || [] });
   } catch (error) {
     res.status(500).json({ message: 'Error fetching wishlist', error });
   }
